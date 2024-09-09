@@ -5,11 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      database: 'postgres',
+      database: 'nestdb',
+      // database: 'postgres',
       username: 'postgres',
       password: 'azertyuiop',
       host: 'localhost',
-      port: 5432,
+      port: 54320,
       autoLoadEntities: true,
     }),
   ],
