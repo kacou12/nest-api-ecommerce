@@ -29,4 +29,9 @@ export class User extends CommonEntity {
   isDelete() {
     return !!this.deleted_at;
   }
+  @BeforeInsert()
+  async hashPassword() {
+    const hash = await Hash.make(this.password);
+    this.password = hash;
+  }
 }

@@ -24,13 +24,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const { password } = createUserDto;
-    const hashedPassword = await this.hashingService.hash(password);
-
-    const user = this.usersRepository.create({
-      ...createUserDto,
-      password: hashedPassword,
-    });
+    const user = this.usersRepository.create(createUserDto);
     return this.usersRepository.save(user);
   }
 

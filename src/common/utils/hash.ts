@@ -1,4 +1,4 @@
-import { compare, genSalt, hash } from 'bcrypt';
+import { compareSync, genSalt, hash } from 'bcrypt';
 
 export class Hash {
   static async make(data: string | Buffer) {
@@ -6,7 +6,7 @@ export class Hash {
     return hash(data, salt);
   }
 
-  static compare(data: string | Buffer, encrypted: string): Promise<boolean> {
-    return compare(data, encrypted);
+  static compare(data: string | Buffer, encrypted: string): boolean {
+    return compareSync(data, encrypted);
   }
 }

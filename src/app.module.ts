@@ -7,6 +7,8 @@ import { ProductsModule } from './domain/products/products.module';
 import { CategoriesModule } from './domain/categories/categories.module';
 import { PaymentsModule } from './domain/payments/payments.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
@@ -18,6 +20,10 @@ import { AuthModule } from './auth/auth.module';
     CategoriesModule,
     PaymentsModule,
     AuthModule,
+    ConfigModule.forRoot({
+      envFilePath: ['.env.local', '.env.prod'],
+      load: [configuration],
+    }),
   ],
   controllers: [],
   providers: [],

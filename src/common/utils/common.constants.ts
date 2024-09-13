@@ -8,6 +8,7 @@ export const VALIDATION_PIPE_OPTIONS: ValidationPipeOptions = {
     enableImplicitConversion: true,
   },
 };
+export const IS_PUBLIC_KEY = 'isPublic';
 
 export const DEFAULT_PAGE_SIZE = {
   USER: 2,
